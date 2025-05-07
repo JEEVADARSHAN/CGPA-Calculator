@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+
+
+    <link rel="stylesheet" href="CSS/styles.css">
+
+    <meta name="theme-color" content="#333">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#333">
+
+    <link rel="icon" href="./Assets/logo.svg?" type="image/svg">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="titleBar">
+            <h3 id="title">CIT CGPA & GPA Calculator</h3>
+            <a href="https://github.com/JEEVADARSHAN/CGPA-Calculator"><i class='bx bxl-github'></i></a>
+        </div>
+
+        <div class="sideBar">
+            <div id="menu" class="sideBarItem" style="position: absolute; top: 1rem; pointer-events: none;">
+                <i class='bx bx-menu'></i>
+                <span class="sideBarText" style="font-size: 0.8rem;"><b>Menu</b></span>
+            </div>
+            <div class="sideBarItem" onclick="UI('GPA')">
+                <i id="i-1" class='bx bx-calculator'></i>
+                <span class="sideBarText animate" data-animation="slideRight">GPA Calculator</span>
+            </div>
+            <div class="sideBarItem" onclick="UI('CGPA')">
+                <i  id="i-2" class='bx bx-calculator'></i> <!-- Fixed 'onclick' here -->
+                <span class="sideBarText animate" data-animation="slideRight">CGPA Calculator</span>
+            </div>
+            <div class="sideBarItem" onclick="UI('Target')">
+                <i id="i-3" class='bx bx-bullseye'></i>
+                <span class="sideBarText animate" data-animation="slideRight">Target GPA</span>
+            </div>
+            <section class="overlay"></section>
+        </div>
+
+
+    </header>
+
+    <!-- Content -->
+    <main>
+
+        <!-- Intro -->
+        <section id="Intro">
+            <img src="../Assets/01.png" />
+            <div class="text-overlay">
+                <br />
+                <h2>CIT CGPA & GPA Calculator</h2>
+                <br />
+                <h4>Track your academic progress effortlessly.</h4>
+            </div>
+            <br />
+            <br />
+            <div class="IntroTxt">
+                <div class="rndBox container" style="margin: 1rem;">
+                    <p>
+                        <b>Accurate & Reliable</b><br />
+                        The official grading criteria of CIT to ensure accurate GPA & CGPA results.
+                    </p>
+                </div>
+                <div class="rndBox container" style="margin: 1rem;">
+                    <p>
+                        <b>Easy to Use</b><br />
+                        With an intuitive design, you can calculate your GPA & CGPA in a few easy steps without even knowing the credit details.
+                </div>
+                <div class="rndBox container" style="margin: 1rem;">
+                    <p>
+                        <b>Plan Ahead</b><br />
+                        Get insights into your academic progress and set goals for your future semesters.
+                    </p>
+                </div>
+              
+            </div>
+            <br />
+            <br />
+        </section>
+
+
+        <!-- GPA -->
+
+        <section id="GPA" class="animate" data-animation="slideRight">
+            <div class="txtBox">
+                <h3>
+                    Understanding Your GPA Result
+                </h3>
+                <br />
+                <p>
+                    Your GPA is calculated based on the grades you've received in your subjects, weighted by the credits of each subject. A higher GPA reflects better performance. Use your GPA to assess your academic progress and determine what steps you need to take to improve.
+                </p>
+            </div>
+            <div class="rndBox container">
+
+                <!-- Regulation Dropdown -->
+                <label for="regulation">Select Regulation:</label>
+                <select id="regulation" onchange="fetchDepartments()">
+                    <option value="">Select Regulation</option>
+                </select>
+
+
+                <!-- Department Dropdown -->
+                <label for="department">Select Department:</label>
+                <select id="department" onchange="fetchSemesters()">
+                    <option value="">Select Department</option>
+                </select>
+
+
+                <!-- Semester Dropdown -->
+                <label for="semester">Select Semester:</label>
+                <select id="semester" onchange="fetchGPA()">
+                    <option value="">Select Semester</option>
+                </select>
+
+                <!-- GPA Table and Results -->
+                <div id="gpa-table" style="display:none;">
+                    <table id="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject</th>
+                                <th>Credits</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic content will go here -->
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn" onclick="calculateFinalGPA()">Calculate</button>
+                <h3 id="final-gpa" style="visibility: hidden;">Your GPA: <span style="font-size: 1.3rem;"></span></h3>
+            </div>
+            <div class="txtBox">
+                <h3>
+                    How is Your GPA Calculated?
+                </h3>
+                <br />
+                <p>
+                    Your GPA is calculated by multiplying the grade points for each subject by the number of credits it carries. Then, the total grade points are divided by the total number of credits for that semester. For example, if you received an ‘A’ in a subject with 3 credits, that contributes 30 grade points to your GPA calculation (assuming ‘A’ equals 10 grade points).
+                    <br />Here’s a simplified example for better understanding:<br />
+
+                    <br /><b>Subject 1:</b> 3 credits, Grade O (10 points) → 3 * 10 = 30 grade points<br />
+
+                    <br /><b>Subject 2:</b> 4 credits, Grade A (8 points) → 4 * 8 = 32 grade points<br />
+                    <br />Total Grade Points = 62, Total Credits = 7<br />
+                    <br />GPA = 62 / 7 = 8.86
+                </p>
+                <br />
+                <br />
+            </div>
+        </section>
+
+        <!-- CGPA -->
+
+        <section id="CGPA" class="animate" data-animation="showText">
+            <div class="txtBox">
+                <h3>
+                    Understanding Your CGPA:
+                </h3>
+                <p>
+                    <br />While GPA measures your performance in one semester, CGPA calculates your overall academic performance throughout all completed semesters. It’s the weighted average of all your GPAs, taking into account the credits for each semester.
+                    <br /><br />The formula for CGPA is:
+                    <br />CGPA = (Total Grade Points in All Semesters) / (Total Credits in All Semesters)<br />
+                    <br />This cumulative score gives you a complete picture of your academic performance.
+                </p>
+            </div>
+            <div class="rndBox container">
+                <!-- Regulation Dropdown -->
+                <label for="regulationCGPA">Select Regulation:</label>
+                <select id="regulationCGPA" onchange="fetchDepartmentsCGPA()">
+                    <option value="">Select Regulation</option>
+                </select>
+
+                <!-- Department Dropdown -->
+                <label for="departmentCGPA">Select Department:</label>
+                <select id="departmentCGPA" onchange="fetchCompletedSemesters()">
+                    <option value="">Select Department</option>
+                </select>
+
+                <!-- Completed Semester Dropdown -->
+                <label for="completedSemester">Select Completed Semester:</label>
+                <select id="completedSemester" onchange="fetchSubjectsForCompletedSemesters()">
+                    <option value="">Select Completed Semester</option>
+                </select>
+
+                <!-- Table to display Subjects -->
+                <div id="subjectsTableCGPA" style="display:none;">
+                    <table id="grades-tableCGPA">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject</th>
+                                <th>Credits</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic rows will go here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="btn" onclick="calculateCGPA()">Calculate CGPA</button>
+                <h3 id="cgpa-result" style="visibility: hidden; padding: 1rem;">Your CGPA: <span style="font-size: 1.3rem;"></span></h3>
+            </div>
+        </section>
+
+
+        <!-- Target -->
+
+        <section id="Target" class="animate" data-animation="slideLeft">
+            <div class="txtBox">
+                <h3>
+                    Setting a Target GPA for Success:
+                </h3>
+                <p>
+                    <br />
+                    Setting an academic target GPA is a great way to stay focused and motivated. Whether you’re aiming to improve your performance or maintain a strong GPA for a scholarship, knowing exactly what GPA you need to achieve your desired CGPA can help you plan accordingly.
+                </p>
+            </div>
+            <div class="rndBox container">
+                <h3>Target CGPA Calculator</h3>
+
+                <!-- Reusing dropdowns with same IDs -->
+                <label for="target-regulation">Select Regulation:</label>
+                <select id="target-regulation" onchange="fetchTargetDepartments()" class="dropdown">
+                    <option value="">Select Regulation</option>
+                </select>
+
+                <label for="target-department">Select Department:</label>
+                <select id="target-department" onchange="fetchTargetSemesters()" class="dropdown">
+                    <option value="">Select Department</option>
+                </select>
+
+                <label for="target-semester">Select Current Semester:</label>
+                <select id="target-semester" class="dropdown">
+                    <option value="">Select Semester</option>
+                </select>
+
+                <label for="currentCGPA">Your Current CGPA:</label>
+                <input type="number" id="currentCGPA" class="inputBox" step="0.01" min="0" max="10" />
+
+                <label for="targetCGPA">Your Target CGPA:</label>
+                <input type="number" id="targetCGPA" class="inputBox" step="0.01" min="0" max="10" />
+
+                <div style="padding:2rem; gap: 0.5rem;">
+                    <button class="btn" onclick="calculateTargetGPA()" class="btn">Calculate Required GPA</button>
+
+                    <h3 id="requiredGPAResult" style="display:none; padding: 1rem;">You need an average GPA of <span style="font-size:1.2rem;"></span> in your remaining semesters.</h3>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+    
+    
+    <script src="JS/main.js"></script>
+</body>
+</html>

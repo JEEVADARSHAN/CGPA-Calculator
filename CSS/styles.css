@@ -1,0 +1,481 @@
+﻿html {
+    font-size: calc(15px + 0.390625vw);
+    background-color: #FFFBFE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, p ,a{
+    color: #333;
+    word-wrap: normal;
+    white-space: normal;
+    text-decoration: none;
+}
+h1 {font-size: 1.8rem;}
+h2 {font-size: 1.5rem;}
+h3 {font-size: 1.2rem;}
+h4 {font-size: 0.9rem;}
+h7 {font-size: 0.5rem;}
+p {
+    font-size: 0.7rem;
+}
+span{font-size: 0.7rem;}
+
+.animate {
+    opacity: 0;
+}
+
+    .animate.in-view.slideRight {
+        animation: slideRight 1s ease forwards;
+    }
+
+    .animate.in-view.slideLeft {
+        animation: slideLeft 1s ease forwards;
+    }
+
+    .animate.in-view.slideTop {
+        animation: slideTop 1s ease forwards;
+    }
+
+    .animate.in-view.slideBottom {
+        animation: slideBottom 1s ease forwards;
+    }
+
+    .animate.in-view.showText {
+        animation: showText 0.5s linear forwards;
+    }
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+
+button {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: #00b0ff;
+    color: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.7s;
+    margin-top: 2rem;
+    border-color: transparent;
+}
+.btn:hover {
+    transform: translateY(-0.5rem);
+}
+
+section{
+    min-height: 100vh;
+}
+
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+    width: 0.5rem;
+    background: #334a59;
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(255,255,255,0.4);
+    border-radius: 0.5rem;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(255,255,255,0.5);
+    }
+
+
+/*========== MAIN ==========*/
+
+main {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    overflow-x: hidden;
+}
+
+/*========== FOOTER ==========*/
+
+
+.footer {
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    z-index: 8;
+}
+.footer p{
+    color: white;
+    padding: 0.4rem;
+}
+
+
+/*========== HEADER ==========*/
+
+
+.titleBar{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0px;
+    left: 3rem;
+    width: calc(100vw - 3rem);
+    padding: 1rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    z-index: 9;
+    justify-content: space-between;
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 3rem;
+    padding: 1rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    z-index: 10;
+    justify-content: space-evenly;
+    transition: all 0.5s ease-in-out;
+}
+
+.sideBarItem {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    position: relative;
+    padding: 0.25rem;
+    gap: 5px;
+    transition: all .5s;
+}
+
+
+.sideBarText {
+    display: none;
+    margin-left: 1rem;
+    color: #333;
+    transition: all .5s ease;
+}
+
+.sideBar:hover {
+    width: 25vw; 
+}
+    .sideBar:hover .overlay {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+    .sideBar:hover .sideBarText {
+        display: inline-block;
+    }
+
+
+.sideBarItem:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transform: scale(0.99);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 25vw;
+    height: 100%;
+    width: 1000%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    background-color: rgb(0,0,0,0.3);
+    transition: all 0.5s;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translateX(-25rem);
+    transition: transform 0.5s, opacity 2s;
+}
+
+
+/*========== INTRO ==========*/
+
+#Intro{
+    display: block;
+}
+#GPA, #CGPA, #Target{
+    display: none;
+}
+
+.container {
+    max-width: 70vw;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem auto;
+}
+#Intro {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    position: relative; 
+}
+
+    #Intro img {
+        width: 80vw;
+        border-radius: 1rem;
+    }
+
+.text-overlay {
+    position: absolute; 
+    top: 5rem;;
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+}
+#Intro h2, #Intro h4{
+    color: white;
+}
+.IntroTxt {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*========== WIDGETS ==========*/
+
+label{
+    padding: 0.5rem;
+}
+
+select, input {
+    padding: 0.3rem;
+    border: 2px solid #ddd;
+    background: #fff;
+    transition: all 1s;
+    font-size: 0.7rem;
+}
+
+option {
+    display: flex;
+    justify-content: flex-start;
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 0.5rem;
+    transition: 0.4s;
+    font-size: 0.7rem;
+}
+
+    option:first-of-type {
+        border-radius: 8px 8px 0 0;
+    }
+
+    option:last-of-type {
+        border-radius: 0 0 8px 8px;
+    }
+
+    option:not(option:last-of-type) {
+        border-bottom: none;
+    }
+
+    option:nth-of-type(odd) {
+        background: #fff;
+    }
+
+    option:hover,
+    option:focus {
+        background: #1e90ff;
+    }
+
+selectedcontent .icon {
+    display: none;
+}
+
+.txtBox{
+    padding: 0.5rem;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+}
+.rndBox {
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F2FA;
+    border-radius: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    transition: all 1s;
+}
+
+table {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    background-color: #fff;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 0.7rem;
+}
+
+#gpa-table h3{
+    padding: 1rem;
+}
+
+
+/*========== MOBILE ==========*/
+
+
+@media (max-width: 767px) {
+
+    /*========== OTHER ==========*/
+    main {
+        margin-top: 4rem;
+        margin-left: 0;
+    }
+    .footer {
+        margin-bottom: 4rem;
+    }
+
+    /*========== HEADER ==========*/
+    #menu{
+        display: none;
+    }
+    .titleBar {
+        left: 0;
+        width: 100vw;
+        align-items: center;
+        padding: 0.5rem;
+    }
+    .sideBar{
+        background-color: #212121;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        padding:0.5rem;
+        height: 4rem;
+        width: 100vw;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .sideBarItem {
+        color: #b3b3b3;
+        display: flex;
+        flex-direction: column;
+    }
+        .sideBarItem:hover {
+            background-color: transparent;
+        }
+    .sideBarText{
+        display: block;
+        margin: 0;
+        color: #b3b3b3;
+    }
+    .sideBar:hover{
+        height: 4rem;
+        width: 100vw;
+    }
+    .bx {
+        padding: 0.25rem;
+        transition: all.5s;
+    }
+        .bx.selected {
+            border-radius: 1rem;
+            background-color: #708090;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            color: white
+        }
+
+
+    .titleBar h3{
+        font-size: .9rem;
+    }
+
+    /*========== INTRO ==========*/
+
+
+    #Intro h2{
+        font-size: 1rem;
+    }
+    #Intro h4{
+        font-size: 0.8rem;
+    }
+    .IntroTxt {
+        flex-direction: column;
+    }
+    #Intro img {
+        height: 50vh;
+        object-fit: cover;
+        border-radius: 1rem;
+        width: calc(100vw - 1rem);
+    }
+
+    /*========== WIDGETS ==========*/
+
+    .container {
+        max-width: 100%;
+        width: calc(100vw - 1rem);
+        padding: 1rem;
+    }
+    .overlay{
+        display: none;
+    }
+    #gpa-table {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+        #gpa-table::-webkit-scrollbar {
+            display: none;
+        }
+        #gpa-table h3, #gpa-table span{
+            font-size: 1rem;
+        }
+
+    #subjectsTableCGPA {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        #subjectsTableCGPA::-webkit-scrollbar {
+            display: none;
+        }
+    #subjectsTableCGPA h3{
+        font-size: 1rem;
+    }
+}
