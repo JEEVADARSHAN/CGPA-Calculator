@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA Calculator</title>
+    <title>CGPA & GPA Calculator | CIT</title>
 
 
     <link rel="stylesheet" href="CSS/styles.css">
@@ -21,7 +21,7 @@
     <!-- Header -->
     <header>
         <div class="titleBar">
-            <h3 id="title">CIT CGPA & GPA Calculator</h3>
+            <h3 id="title"><i class='bx bxs-graduation'></i>CIT CGPA & GPA Calculator</h3>
             <a href="https://github.com/JEEVADARSHAN/CGPA-Calculator"><i class='bx bxl-github'></i></a>
         </div>
 
@@ -50,6 +50,67 @@
 
     <!-- Content -->
     <main>
+
+        <!-- Policy and Terms-->
+        <input type="checkbox" id="privacy-checkbox" class="privacy-checkbox">
+        <div class="privacy-popup">
+            <div class="popup-content rndBox">
+                <div style=" display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                    <h2>Privacy Policy</h2>
+                    <label for="privacy-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
+                </div>
+                    <p>
+                        We respect your privacy. This website does not collect, store, or share any personal information.
+                        <br />
+                        <br />
+                        <b>What We Do</b>
+                        <br /><br />
+                        1. We provide a CGPA calculator based on publicly available syllabus and grading criteria of Chennai Institute of Technology.
+                        <br /><br />
+                        2. All calculations are performed locally in your browser.
+                        <br /><br />
+                        3. We do not use cookies or track your activity.
+                        <br /><br /><br />
+                        <b>What We Don't Do</b>
+                        <br /><br />
+                        1. We don't ask for or store names, student IDs, or any academic records.
+                        <br /><br />
+                        2. We don’t use third-party analytics or tracking tools.<br /><br />
+                    </p>
+            </div>
+        </div>
+        <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+        <div class="terms-popup">
+            <div class="popup-content rndBox">
+                <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; ">
+                    <h2>Disclaimer</h2><br />
+                    <label for="terms-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
+                </div>    
+                        <p>
+                            1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br />
+                            <br /><br />
+                            2. It is provided for informational and educational purposes only.<br />
+                            <br /><br />
+                            3. CGPA results are approximations based on the syllabus and grading patterns. For official CGPA, please consult your academic department or examination office.<br />
+                            <br /><br />
+                            4. The developer is not responsible for any decisions made based on the results from this tool.<br />
+                            <br /><br />
+                        </p>
+
+
+                    <h2>Terms of Use</h2>
+                    <br />
+                    <p>
+                        By using this website, you agree to the following:<br /><br />
+                        1. You will use this tool only for personal, non-commercial academic assistance.<br />
+                        <br /><br />
+                        2. You understand that this tool is unofficial and meant as a guide, not an authority.<br />
+                        <br /><br />
+                        3. You will not copy, redistribute, or attempt to misuse the calculator or its logic for misleading purposes.<br />
+                        <br /><br />
+                    </p>
+            </div>
+        </div>
 
         <!-- Intro -->
         <section id="Intro">
@@ -80,7 +141,7 @@
                         Get insights into your academic progress and set goals for your future semesters.
                     </p>
                 </div>
-              
+
             </div>
             <br />
             <br />
@@ -269,6 +330,10 @@
     <!-- Footer -->
 
     <footer class="footer">
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <label for="privacy-checkbox" class="privacy">Privacy Policy</label>
+            <label for="terms-checkbox" class="terms">Terms of Use</label>
+        </div>
         <p>&copy; 2025 All rights reserved.</p>
     </footer>
     

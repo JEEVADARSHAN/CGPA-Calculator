@@ -136,6 +136,48 @@ main {
     color: white;
     padding: 0.4rem;
 }
+.footer label{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #eee;
+    font-size: 0.8rem;
+}
+
+/* Popup styles (hidden by default) */
+.privacy-checkbox, .terms-checkbox {
+    display: none;
+}
+
+.privacy-popup, .terms-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: scroll;
+}
+.popup-content{
+    margin: 1rem;
+}
+
+    .privacy-popup::-webkit-scrollbar, .terms-popup::-webkit-scrollbar {
+        display: none;
+    }
+
+    .privacy-popup .close-btn, .terms-popup .close-btn {
+        font-size: 2rem;
+        color: red;
+    }
+
+/* Show popup when checkbox is checked */
+.privacy-checkbox:checked ~ .privacy-popup, .terms-checkbox:checked ~ .terms-popup {
+    display: flex;
+}
 
 
 /*========== HEADER ==========*/
