@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /tmp/
+Disallow: /junk/
+Disallow: /cgi-bin/
+Allow: /
+Sitemap: citcgpa.vercel.app/sitemap.xml
