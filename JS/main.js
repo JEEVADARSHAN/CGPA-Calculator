@@ -113,10 +113,15 @@ function populateRegulationDropdown() {
         option.textContent = regulation;
         regulationSelect.appendChild(option);
     });
+    document.getElementById('department').disabled = true;
+    document.getElementById('semester').disabled = true;
 }
 
 // ================  Populate departments based on selected regulation ====================
 function fetchDepartments() {
+    document.getElementById('department').disabled = false;
+    document.getElementById('semester').disabled = true;
+
     const regulation = document.getElementById('regulation').value;
 
     document.getElementById('department').innerHTML = '<option value="">Select Department</option>';
@@ -148,6 +153,8 @@ function fetchDepartments() {
 
 //================  Populate semesters dynamically ==================== 
 function fetchSemesters() {
+    document.getElementById('semester').disabled = false;
+
     const regulation = document.getElementById('regulation').value;
     const department = document.getElementById('department').value;
 
@@ -288,10 +295,17 @@ function populateTargetRegulationDropdown() {
             select.appendChild(option);
         }
     });
+    
+    document.getElementById('target-department').disabled = true;
+    document.getElementById('target-semester').disabled = true;
 }
 
 // ================  Populate departments based on selected regulation ====================
 function fetchTargetDepartments() {
+    
+    document.getElementById('target-department').disabled = false;
+    document.getElementById('target-semester').disabled = true;
+
     const regulation = document.getElementById('target-regulation').value;
     const deptSelect = document.getElementById('target-department');
 
@@ -318,6 +332,8 @@ function fetchTargetDepartments() {
 
 //================  Populate semesters dynamically ==================== 
 function fetchTargetSemesters() {
+    document.getElementById('target-semester').disabled = false;
+
     const regulation = document.getElementById('target-regulation').value;
     const department = document.getElementById('target-department').value;
     const semSelect = document.getElementById('target-semester');
@@ -395,6 +411,9 @@ function calculateTargetGPA() {
 
 // ================  CGPA ====================
 function populateRegulationDropdownCGPA() {
+    document.getElementById('departmentCGPA').disabled = true;
+    document.getElementById('completedSemester').disabled = true;
+
     const regulationSelect = document.getElementById('regulationCGPA');
     regulationSelect.innerHTML = '<option value="">Select Regulation</option>';
     data.regulations = [];
@@ -417,6 +436,9 @@ function populateRegulationDropdownCGPA() {
 // ================  Populate departments based on selected regulation ====================
 
 function fetchDepartmentsCGPA() {
+    document.getElementById('departmentCGPA').disabled = false;
+    document.getElementById('completedSemester').disabled = true;
+
     const regulation = document.getElementById('regulationCGPA').value;
     document.getElementById('departmentCGPA').innerHTML = '<option value="">Select Department</option>';
     document.getElementById('completedSemester').innerHTML = '<option value="">Select Completed Semester</option>';
@@ -448,6 +470,7 @@ function fetchDepartmentsCGPA() {
 //================  Populate semesters dynamically ==================== 
 
 function fetchCompletedSemesters() {
+
     const regulation = document.getElementById('regulationCGPA').value;
     const department = document.getElementById('departmentCGPA').value;
 
@@ -480,6 +503,8 @@ function fetchCompletedSemesters() {
 
 //================  Populate semesters dynamically ==================== 
 function fetchCompletedSemesters() {
+    document.getElementById('completedSemester').disabled = false;
+
     const regulation = document.getElementById('regulationCGPA').value;
     const department = document.getElementById('departmentCGPA').value;
 

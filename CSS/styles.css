@@ -142,6 +142,10 @@ main {
     color: #eee;
     font-size: 0.8rem;
 }
+.footer a{
+    color: white;
+    text-decoration: underline;
+}
 
 /* Popup styles (hidden by default) */
 .privacy-checkbox, .terms-checkbox {
