@@ -64,6 +64,15 @@
           }
         }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLDW3L7HKN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VLDW3L7HKN');
+    </script>
+
 </head>
 <body>
     <!-- Header -->
@@ -74,7 +83,8 @@
         </div>
 
         <div class="sideBar">
-            <div id="menu" class="sideBarItem" style="position: absolute; top: 1rem; pointer-events: none;">
+
+            <div id="menu" class="sideBarItem" data-animation="showText" style="position: absolute; top: 0.5rem; pointer-events: none;">
                 <i class='bx bx-menu'></i>
                 <span class="sideBarText" style="font-size: 0.8rem;"><b>Menu</b></span>
             </div>
@@ -83,14 +93,14 @@
                 <span class="sideBarText animate" data-animation="slideRight">GPA Calculator</span>
             </div>
             <div class="sideBarItem" onclick="UI('CGPA')">
-                <i  id="i-2" class='bx bx-calculator'></i> <!-- Fixed 'onclick' here -->
+                <i id="i-2" class='bx bx-calculator'></i> <!-- Fixed 'onclick' here -->
                 <span class="sideBarText animate" data-animation="slideRight">CGPA Calculator</span>
             </div>
             <div class="sideBarItem" onclick="UI('Target')">
                 <i id="i-3" class='bx bx-bullseye'></i>
                 <span class="sideBarText animate" data-animation="slideRight">Target GPA</span>
             </div>
-            <section class="overlay"></section>
+            <div class="overlay"></div>
         </div>
 
 
