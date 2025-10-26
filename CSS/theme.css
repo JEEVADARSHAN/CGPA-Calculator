@@ -1,0 +1,27 @@
+/* ============ LIGHT THEME ========== */
+:root {
+    --white: #fff;
+    --black: #000;
+    --background: #fcfcfc;
+    --surface1: #ffffff;
+    --surface2: #ffffff;
+    --primary: #00b0ff;
+    --onBackground: #333;
+    --onSurface: #5F6368;
+    --onPrimary: #202124;
+    --hover: #f0f0f0;
+}
+
+/* ========= DARK THEME ============ */
+[data-theme="dark"] {
+    --white: #fff;
+    --black: #000;
+    --background: #121212;
+    --surface1: #2E2E2E;
+    --surface2: #333333;
+    --primary: #00b0ff;
+    --onBackground: #fff;
+    --onSurface: #9AA0A6;
+    --onPrimary: #E8EAED;
+    --hover: #0f0f0f;
+}

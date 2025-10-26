@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title> CIT GPA CGPA Calculator </title>
 
+    <link rel="stylesheet" href="CSS/theme.css">
     <link rel="stylesheet" href="CSS/styles.css">
+
+    <link rel="manifest" href="manifest.json">
 
     <meta name="theme-color" content="#333">
     <meta name="apple-mobile-web-app-status-bar-style" content="#333">
@@ -79,15 +82,20 @@
     <header>
         <div class="titleBar">
             <h1 style="font-size: 0.9rem;" id="title"><i class='bx bxs-graduation'></i> &nbsp; CGPA & GPA Calculator - CIT </h1>
-            <a href="https://github.com/JEEVADARSHAN/CGPA-Calculator" target="_blank" aria-label="View Source Code on Github"><i class='bx bxl-github'></i></a>
+            <div style="display: flex; flex-direction: row">
+                <a style="cursor:pointer;" id="theme-btn" aria-label="Theme Toggle"><i class='bx bx-moon'></i></a>
+                &nbsp;&nbsp;&nbsp;
+                <a style="cursor:pointer;" href="https://github.com/JEEVADARSHAN/CGPA-Calculator" target="_blank" aria-label="View Source Code on Github"><i class='bx bxl-github'></i></a>
+            </div>
         </div>
 
         <div class="sideBar">
 
-            <div id="menu" class="sideBarItem" data-animation="showText" style="position: absolute; top: 0.5rem; pointer-events: none;">
+            <div id="menu" class="sideBarItem" style="position: absolute; top: 0.5rem; pointer-events: none;">
                 <i class='bx bx-menu'></i>
-                <span class="sideBarText" style="font-size: 0.8rem;"><b>Menu</b></span>
+                <span class="sideBarText animate" data-animation="showText" style="font-size: 0.8rem;"><b>Menu</b></span>
             </div>
+            <hr />
             <div class="sideBarItem" onclick="UI('GPA')">
                 <i id="i-1" class='bx bx-calculator'></i>
                 <span class="sideBarText animate" data-animation="slideRight">GPA Calculator</span>
@@ -100,9 +108,9 @@
                 <i id="i-3" class='bx bx-bullseye'></i>
                 <span class="sideBarText animate" data-animation="slideRight">Target GPA</span>
             </div>
-            <div class="overlay"></div>
-        </div>
 
+        </div>
+        <div class="overlay"></div>
 
     </header>
 
@@ -117,24 +125,24 @@
                     <h2>Privacy Policy</h2>
                     <label for="privacy-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
                 </div>
-                    <p>
-                        We respect your privacy. This website does not collect, store, or share any personal information.
-                        <br />
-                        <br />
-                        <b>What We Do</b>
-                        <br /><br />
-                        1. We provide a CGPA calculator based on publicly available syllabus and grading criteria of Chennai Institute of Technology.
-                        <br /><br />
-                        2. All calculations are performed locally in your browser.
-                        <br /><br />
-                        3. We do not use cookies or track your activity.
-                        <br /><br /><br />
-                        <b>What We Don't Do</b>
-                        <br /><br />
-                        1. We don't ask for or store names, student IDs, or any academic records.
-                        <br /><br />
-                        2. We don’t use third-party analytics or tracking tools.<br /><br />
-                    </p>
+                <p>
+                    We respect your privacy. This website does not collect, store, or share any personal information.
+                    <br />
+                    <br />
+                    <b>What We Do</b>
+                    <br /><br />
+                    1. We provide a CGPA calculator based on publicly available syllabus and grading criteria of Chennai Institute of Technology.
+                    <br /><br />
+                    2. All calculations are performed locally in your browser.
+                    <br /><br />
+                    3. We do not use cookies or track your activity.
+                    <br /><br /><br />
+                    <b>What We Don't Do</b>
+                    <br /><br />
+                    1. We don't ask for or store names, student IDs, or any academic records.
+                    <br /><br />
+                    2. We don’t use third-party analytics or tracking tools.<br /><br />
+                </p>
             </div>
         </div>
         <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
@@ -143,30 +151,30 @@
                 <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; ">
                     <h2>Disclaimer</h2><br />
                     <label for="terms-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
-                </div>    
-                        <p>
-                            1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br />
-                            <br /><br />
-                            2. It is provided for informational and educational purposes only.<br />
-                            <br /><br />
-                            3. CGPA results are approximations based on the syllabus and grading patterns. For official CGPA, please consult your academic department or examination office.<br />
-                            <br /><br />
-                            4. The developer is not responsible for any decisions made based on the results from this tool.<br />
-                            <br /><br />
-                        </p>
+                </div>
+                <p>
+                    1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br />
+                    <br /><br />
+                    2. It is provided for informational and educational purposes only.<br />
+                    <br /><br />
+                    3. CGPA results are approximations based on the syllabus and grading patterns. For official CGPA, please consult your academic department or examination office.<br />
+                    <br /><br />
+                    4. The developer is not responsible for any decisions made based on the results from this tool.<br />
+                    <br /><br />
+                </p>
 
 
-                    <h2>Terms of Use</h2>
-                    <br />
-                    <p>
-                        By using this website, you agree to the following:<br /><br />
-                        1. You will use this tool only for personal, non-commercial academic assistance.<br />
-                        <br /><br />
-                        2. You understand that this tool is unofficial and meant as a guide, not an authority.<br />
-                        <br /><br />
-                        3. You will not copy, redistribute, or attempt to misuse the calculator or its logic for misleading purposes.<br />
-                        <br /><br />
-                    </p>
+                <h2>Terms of Use</h2>
+                <br />
+                <p>
+                    By using this website, you agree to the following:<br /><br />
+                    1. You will use this tool only for personal, non-commercial academic assistance.<br />
+                    <br /><br />
+                    2. You understand that this tool is unofficial and meant as a guide, not an authority.<br />
+                    <br /><br />
+                    3. You will not copy, redistribute, or attempt to misuse the calculator or its logic for misleading purposes.<br />
+                    <br /><br />
+                </p>
             </div>
         </div>
 
@@ -221,28 +229,28 @@
             <div class="rndBox container">
 
                 <!-- Regulation Dropdown -->
-                <label for="regulation">Select Regulation:</label>
-                <select id="regulation" onchange="fetchDepartments()">
+                <label for="gpa-reg">Select Regulation:</label>
+                <select id="gpa-reg" onchange="depDropdown('gpa')">
                     <option value="">Select Regulation</option>
                 </select>
 
 
                 <!-- Department Dropdown -->
-                <label for="department">Select Department:</label>
-                <select id="department" onchange="fetchSemesters()">
+                <label for="gpa-dep">Select Department:</label>
+                <select id="gpa-dep" onchange="semDropdown('gpa')">
                     <option value="">Select Department</option>
                 </select>
 
 
                 <!-- Semester Dropdown -->
-                <label for="semester">Select Semester:</label>
-                <select id="semester" onchange="fetchGPA()">
+                <label for="gpa-sem">Select Semester:</label>
+                <select id="gpa-sem" onchange="loadSubjects('gpa')">
                     <option value="">Select Semester</option>
                 </select>
 
                 <!-- GPA Table and Results -->
-                <div id="gpa-table" style="display:none;">
-                    <table id="grades-table">
+                <div id="gpa-table-div" style="display:none;">
+                    <table id="gpa-table">
                         <thead>
                             <tr>
                                 <th>Subject Code</th>
@@ -256,7 +264,7 @@
                         </tbody>
                     </table>
                 </div>
-                <button class="btn" onclick="calculateFinalGPA()">Calculate</button>
+                <button class="btn" onclick="calculate('gpa')">Calculate</button>
                 <h3 id="final-gpa" style="visibility: hidden;">Your GPA: <span style="font-size: 1.3rem;"></span></h3>
             </div>
             <div class="txtBox">
@@ -295,26 +303,26 @@
             </div>
             <div class="rndBox container">
                 <!-- Regulation Dropdown -->
-                <label for="regulationCGPA">Select Regulation:</label>
-                <select id="regulationCGPA" onchange="fetchDepartmentsCGPA()">
+                <label for="cgpa-reg">Select Regulation:</label>
+                <select id="cgpa-reg" onchange="depDropdown('cgpa')">
                     <option value="">Select Regulation</option>
                 </select>
 
                 <!-- Department Dropdown -->
-                <label for="departmentCGPA">Select Department:</label>
-                <select id="departmentCGPA" onchange="fetchCompletedSemesters()">
+                <label for="cgpa-dep">Select Department:</label>
+                <select id="cgpa-dep" onchange="semDropdown('cgpa')">
                     <option value="">Select Department</option>
                 </select>
 
                 <!-- Completed Semester Dropdown -->
-                <label for="completedSemester">Select Completed Semester:</label>
-                <select id="completedSemester" onchange="fetchSubjectsForCompletedSemesters()">
+                <label for="cgpa-sem">Select Completed Semester:</label>
+                <select id="cgpa-sem" onchange="loadSubjects('cgpa',true)">
                     <option value="">Select Completed Semester</option>
                 </select>
 
                 <!-- Table to display Subjects -->
-                <div id="subjectsTableCGPA" style="display:none;">
-                    <table id="grades-tableCGPA">
+                <div id="cgpa-table-div" style="display:none;">
+                    <table id="cgpa-table">
                         <thead>
                             <tr>
                                 <th>Subject Code</th>
@@ -329,7 +337,7 @@
                     </table>
                 </div>
 
-                <button class="btn" onclick="calculateCGPA()">Calculate CGPA</button>
+                <button class="btn" onclick="calculate('cgpa')">Calculate CGPA</button>
                 <h3 id="cgpa-result" style="visibility: hidden; padding: 1rem;">Your CGPA: <span style="font-size: 1.3rem;"></span></h3>
             </div>
         </section>
@@ -351,18 +359,18 @@
                 <h3>Target CGPA Calculator</h3>
 
                 <!-- Reusing dropdowns with same IDs -->
-                <label for="target-regulation">Select Regulation:</label>
-                <select id="target-regulation" onchange="fetchTargetDepartments()" class="dropdown">
+                <label for="target-reg">Select Regulation:</label>
+                <select id="target-reg" onchange="depDropdown('target')" class="dropdown">
                     <option value="">Select Regulation</option>
                 </select>
 
-                <label for="target-department">Select Department:</label>
-                <select id="target-department" onchange="fetchTargetSemesters()" class="dropdown">
+                <label for="target-dep">Select Department:</label>
+                <select id="target-dep" onchange="semDropdown('target')" class="dropdown">
                     <option value="">Select Department</option>
                 </select>
 
                 <label for="target-semester">Select Current Semester:</label>
-                <select id="target-semester" class="dropdown">
+                <select id="target-sem" class="dropdown">
                     <option value="">Select Semester</option>
                 </select>
 
@@ -373,15 +381,12 @@
                 <input type="number" id="targetCGPA" class="inputBox" step="0.01" min="0" max="10" />
 
                 <div style="padding:2rem; gap: 0.5rem;">
-                    <button class="btn" onclick="calculateTargetGPA()" class="btn">Calculate Required GPA</button>
+                    <button class="btn" onclick="calculateTargetGPA()">Calculate Required GPA</button>
 
                     <h3 id="requiredGPAResult" style="display:none; padding: 1rem;">You need an average GPA of <span style="font-size:1.2rem;"></span> in your remaining semesters.</h3>
                 </div>
             </div>
         </section>
-
-
-
 
     </main>
 
@@ -394,8 +399,31 @@
         </div>
         <p>&copy; 2025 All rights reserved. Made by <a href="https://jeevadarshan.github.io" target="_blank">Jeevadarshan</a></p>
     </footer>
-    
-    
+
+
     <script src="JS/main.js"></script>
+    <script src="JS/popup.js"></script>
+    <script>
+        // Show popup if offline
+        function checkOnlineStatus() {
+            if (!navigator.onLine) {
+                createPopup("You are offline. Some features may not work.", "warning");
+            }
+        }
+
+        // Listen for offline/online events
+        window.addEventListener("offline", () => {
+            checkOnlineStatus();
+        });
+
+        window.addEventListener("online", () => {
+            createPopup("Back online! All features are available.", "success");
+        });
+
+        // Initial check when app loads
+        checkOnlineStatus();
+
+
+    </script>
 </body>
 </html>

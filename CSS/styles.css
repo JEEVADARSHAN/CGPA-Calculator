@@ -1,6 +1,7 @@
 ﻿html {
     font-size: calc(15px + 0.390625vw);
-    background-color: #FFFBFE;
+    background-color: var(--background);
+    transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -12,7 +13,7 @@
 }
 
 h1, h2, h3, h4, p ,a{
-    color: #333;
+    color: var(--onBackground);
     word-wrap: normal;
     white-space: normal;
     text-decoration: none;
@@ -80,18 +81,30 @@ span{font-size: 0.7rem;}
 
 
 button {
+    overflow: hidden;
     border-radius: 1rem;
-    padding: 0.5rem;
-    background-color: #00b0ff;
-    color: white;
+    padding: 0.5rem 1rem;
+    margin: 2rem 0 2rem 0;
+    background: var(--primary);
+    color: var(--white);
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-    transition: all 0.7s;
-    margin-top: 2rem;
-    border-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s, background 0.8s ease;
+    background-position: center;
 }
-.btn:hover {
-    transform: translateY(-0.5rem);
-}
+
+    button:hover {
+        transform: translateY(-1px);
+        background: #2196f3 radial-gradient(circle, transparent 1%, #00b0ff 1%) center/15000%;
+    }
+
+    button:active {
+        background-color: #2196f3;
+        background-size: 100%;
+        transition: background 0s;
+    }
+
 
 section{
     min-height: 100vh;
@@ -99,20 +112,9 @@ section{
 
 
 /*========== SCROLL BAR ==========*/
-::-webkit-scrollbar {
-    width: 0.5rem;
-    background: #334a59;
-    border-radius: 0.5rem;
+::-webkit-scrollbar-button {
+    display: none;
 }
-
-::-webkit-scrollbar-thumb {
-    background: rgb(255,255,255,0.4);
-    border-radius: 0.5rem;
-}
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgb(255,255,255,0.5);
-    }
 
 
 /*========== MAIN ==========*/
@@ -194,12 +196,13 @@ main {
     align-items: center;
     top: 0px;
     left: 2rem;
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 0.5rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
-    background: #fff;
-    z-index: 9;
+    background: var(--surface1);
+    z-index: 8;
     justify-content: space-between;
+    transition: all 0.5s ease-in-out;
 }
 
 .sideBar {
@@ -211,39 +214,45 @@ main {
     top: 0;
     left: 0;
     height: 100vh;
-    padding: 0.5rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
-    background: #fff;
+    background: var(--surface1);
     z-index: 10;
     justify-content: space-evenly;
     transition: all 0.5s ease-in-out;
 }
+    .sideBar hr {
+        position: absolute;
+        top: 2.4rem;
+        width: 100%;
+    }
 
 .sideBarItem {
     display: flex;
     border-radius: 16px;
     width: 100%;
+    color: var(--onBackground);
     align-items: center;
     position: relative;
-    padding-bottom: 0.25rem;
-    padding-top: 0.25rem;
+    padding: 0.5rem;
     gap: 5px;
     transition: all .5s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
 .sideBarText {
     display: none;
     margin-left: 1rem;
-    color: #333;
+    color: var(--onBackground);
     transition: all .5s ease;
 }
 
 .sideBar:hover {
     width: 25vw; 
 }
-    .sideBar:hover .overlay {
-        transition-delay: 0.4s;
+    .sideBar:hover ~ .overlay {
         visibility: visible;
         opacity: 1;
     }
@@ -253,7 +262,7 @@ main {
 
 
 .sideBarItem:hover {
-    background-color: #f0f0f0;
+    background-color: var(--hover);
     cursor: pointer;
     transform: scale(0.99);
 }
@@ -261,12 +270,11 @@ main {
 .overlay {
     position: fixed;
     top: 0;
-    left: 25vw;
+    left: 0;
     height: 100%;
-    width: 1000%;
+    width: 100%;
     opacity: 0;
-    pointer-events: none;
-    z-index: 5;
+    z-index: 9;
     background-color: rgb(0,0,0,0.3);
     transition: all 0.5s;
     pointer-events: none;
@@ -275,6 +283,53 @@ main {
     -webkit-backdrop-filter: blur(10px);
 }
 
+.overlay.show{
+    visibility: visible;
+    opacity:1;
+    pointer-events:auto;
+    z-index:100;
+}
+
+
+/* ========= POPUP ===========*/
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface1);
+    color: var(--onSurface);
+    width: 30%;
+    height: 40%;
+    padding: 20px;
+    justify-content: center;
+    border-radius: 32px;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22), 0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    .popup.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .popup button {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .popup div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
 
 /*========== INTRO ==========*/
 
@@ -307,7 +362,7 @@ main {
 
 .text-overlay {
     position: absolute; 
-    top: 5rem;;
+    top: 5rem;
     width: 100%;
     text-align: center;
     z-index: 4;
@@ -324,13 +379,14 @@ main {
 /*========== WIDGETS ==========*/
 
 label{
+    color: var(--onBackground);
     padding: 0.5rem;
 }
 
 select, input {
     padding: 0.3rem;
     border: 2px solid #ddd;
-    background: #fff;
+    background: var(--white);
     transition: all 1s;
     font-size: 0.7rem;
 }
@@ -379,7 +435,7 @@ selectedcontent .icon {
 .rndBox {
     display: flex;
     flex-direction: column;
-    background-color: #F7F2FA;
+    background-color: var(--surface2);
     border-radius: 2rem;
     margin-top: 2rem;
     padding: 2rem;
@@ -442,6 +498,9 @@ th, td {
         width: 100vw;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+    .sideBar hr{
+        display: none;
     }
     .sideBarItem {
         color: #b3b3b3;
