@@ -102,6 +102,9 @@ function regDropdown(type) {
     departmentElement.disabled = true;
     semesterElement.disabled = true;
 
+    const tableDiv = typeMap[type].tableDiv;
+    if (tableDiv) tableDiv.style.display = 'none';
+
     // Get unique regulations from sheetData
     const uniqueRegs = [...new Set(sheetData.map(row => row['regulation']))];
 
@@ -126,6 +129,9 @@ function depDropdown(type) {
     // Disable department and semester dropdowns
     departmentSelect.disabled = false;
     semesterSelect.disabled = true;
+
+    const tableDiv = typeMap[type].tableDiv;
+    if (tableDiv) tableDiv.style.display = 'none';
 
     // Reset the dropdowns
     departmentSelect.innerHTML = '<option value="">Select Department</option>';
@@ -160,6 +166,10 @@ function semDropdown(type) {
     // Reset
     semesterSelect.disabled = false;
     semesterSelect.innerHTML = '<option value="">Select Semester</option>';
+
+    // Hide the table
+    const tableDiv = typeMap[type].tableDiv;
+    if (tableDiv) tableDiv.style.display = 'none';
 
     // Hide GPA final section if it exists
     const finalGpa = document.getElementById('final-gpa');

@@ -120,8 +120,7 @@ section{
 /*========== MAIN ==========*/
 
 main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin: 40px 0 0 40px;
     overflow-x: hidden;
 }
 
@@ -131,23 +130,24 @@ main {
 .footer {
     width: 100%;
     text-align: center;
-    background-color: #333;
+    background-color: var(--surface2);
     z-index: 8;
+    border-top: 1px solid var(--outline);
 }
 .footer p{
-    color: white;
+    color: var(--onBackground);
     padding: 0.4rem;
 }
 .footer label{
     text-decoration: underline;
     cursor: pointer;
-    color: #eee;
+    color: var(--onBackground);
     font-size: 0.8rem;
 }
-.footer a{
-    color: white;
-    text-decoration: underline;
-}
+    .footer a {
+        color: var(--onBackground);
+        text-decoration: underline;
+    }
 
 /* Popup styles (hidden by default) */
 .privacy-checkbox, .terms-checkbox {
@@ -159,26 +159,41 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     justify-content: center;
-    align-items: center;
     z-index: 1000;
-    overflow: scroll;
+    overflow: auto;
+    pointer-events: none;
 }
-.popup-content{
+.popup-content {
     margin: 1rem;
+    position: relative;
 }
 
-    .privacy-popup::-webkit-scrollbar, .terms-popup::-webkit-scrollbar {
+    .privacy-popup div::-webkit-scrollbar, .terms-popup::-webkit-scrollbar {
         display: none;
     }
 
-    .privacy-popup .close-btn, .terms-popup .close-btn {
-        font-size: 2rem;
-        color: red;
-    }
+.privacy-popup .close-btn, .terms-popup .close-btn {
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    color: red;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 25%;
+    transition: 0.1s all ease;
+}
+        .privacy-popup .close-btn:hover, .terms-popup .close-btn:hover {
+            background: color-mix(in srgb, var(--primary) 12%, transparent);
+        }
 
 /* Show popup when checkbox is checked */
 .privacy-checkbox:checked ~ .privacy-popup, .terms-checkbox:checked ~ .terms-popup {
@@ -188,84 +203,100 @@ main {
 
 /*========== HEADER ==========*/
 
-
 .titleBar {
     display: flex;
     flex-direction: row;
     position: fixed;
-    align-items: center;
     top: 0px;
-    left: 2rem;
-    width: calc(100% - 40px);
+    left: 0px;
+    height: 40px;
+    width: 100%;
     padding: 0.5rem;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--outline);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     background: var(--surface1);
     z-index: 8;
-    justify-content: space-between;
     transition: all 0.5s ease-in-out;
 }
 
 .sideBar {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    align-items: start;
-    width: 40px;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
-    background: var(--surface1);
-    z-index: 10;
-    justify-content: space-evenly;
-    transition: all 0.5s ease-in-out;
+      position: fixed;
+      top: 40px;
+      left: 0;
+      height: calc(100vh - 40px);
+      width: 40px;
+      background: var(--surface2);
+      color: var(--onSurface);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--outline);
+      transition: all 0.3s ease;
+      z-index: 999;
 }
-    .sideBar hr {
-        position: absolute;
-        top: 2.4rem;
-        width: 100%;
+
+    .sideBar:hover {
+        width: 25vw;
     }
+        .sideBar:hover ~ .overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+        .sideBar:hover .sideBarText {
+            opacity: 1;
+        }
 
 .sideBarItem {
     display: flex;
-    border-radius: 16px;
-    width: 100%;
-    color: var(--onBackground);
     align-items: center;
-    position: relative;
-    padding: 0.5rem;
-    gap: 5px;
-    transition: all .5s;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-
-.sideBarText {
-    display: none;
-    margin-left: 1rem;
-    color: var(--onBackground);
-    transition: all .5s ease;
-}
-
-.sideBar:hover {
-    width: 25vw; 
-}
-    .sideBar:hover ~ .overlay {
-        visibility: visible;
-        opacity: 1;
-    }
-    .sideBar:hover .sideBarText {
-        display: inline-block;
-    }
-
-
-.sideBarItem:hover {
-    background-color: var(--hover);
+    gap: 1rem;
+    padding: 1rem 0.5rem;
     cursor: pointer;
-    transform: scale(0.99);
+    border-radius: 16px;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease-in-out;
 }
+
+    .sideBarItem:hover,
+    .sideBarItem:has(.bx.selected) {
+        background: color-mix(in srgb, var(--primary) 12%, transparent);
+        cursor: pointer;
+        transform: scale(0.99);
+        color: var(--onBackground);
+    }
+        .sideBarItem:hover span,
+        .sideBarItem:has(.bx.selected) span {
+            color: var(--onBackground);
+        }
+
+    .sideBarText {
+        opacity: 0;
+        color: var(--onSurface);
+        white-space: nowrap;
+        overflow: hidden;
+        transition: opacity 0.25s ease 0.1s;
+    }
+
+.overlay-min {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 9;
+    background-color: rgb(0,0,0,0.3);
+    transition: all 0.5s;
+    pointer-events: none;
+    visibility: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ========= OVERLAY ===========*/
 
 .overlay {
     position: fixed;
@@ -426,21 +457,19 @@ selectedcontent .icon {
     display: none;
 }
 
-.txtBox{
-    padding: 0.5rem;
-    position:relative;
-    display: flex;
-    flex-direction: column;
-}
 .rndBox {
     display: flex;
     flex-direction: column;
     background-color: var(--surface2);
-    border-radius: 2rem;
-    margin-top: 2rem;
-    padding: 2rem;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
     transition: all 1s;
+    outline: 1px solid var(--outline);
+}
+.container.rndBox{
+    margin: 1rem auto;
 }
 
 table {
@@ -468,12 +497,12 @@ th, td {
 
 
 @media (max-width: 767px) {
-
-    /*========== OTHER ==========*/
     main {
-        margin-top: 4rem;
         margin-left: 0;
     }
+
+    /*========== OTHER ==========*/
+
     .footer {
         margin-bottom: 4rem;
     }
@@ -487,9 +516,10 @@ th, td {
         width: 100vw;
         align-items: center;
         padding: 0.5rem;
+        z-index:999;
     }
     .sideBar{
-        background-color: #212121;
+        background-color: var(--surface2);
         position: fixed;
         bottom: 0;
         top: auto;
@@ -498,21 +528,23 @@ th, td {
         width: 100vw;
         flex-direction: row;
         justify-content: space-evenly;
+        border-top: 1px solid var(--outline);
     }
-    .sideBar hr{
-        display: none;
-    }
+
     .sideBarItem {
         color: #b3b3b3;
         display: flex;
         flex-direction: column;
+        padding: 0;
+        margin: 0;
+        gap:0;
     }
         .sideBarItem:hover {
             background-color: transparent;
         }
     .sideBarText{
-        display: block;
         margin: 0;
+        opacity:1;
         color: #b3b3b3;
     }
     .sideBar:hover{
@@ -525,12 +557,15 @@ th, td {
     }
         .bx.selected {
             border-radius: 1rem;
-            background-color: #708090;
+            background-color: color-mix(in srgb, var(--primary) 50%, transparent);
             padding-left: 1rem;
             padding-right: 1rem;
-            color: white
+            color: var(--onBackground)
         }
-
+    .sideBarItem:hover, .sideBarItem:has(.bx.selected) {
+        background: transparent;
+        transform: scale(1);
+    }
 
     .titleBar h3{
         font-size: .9rem;
@@ -562,9 +597,6 @@ th, td {
         width: calc(100vw - 1rem);
         padding: 1rem;
     }
-    .overlay{
-        display: none;
-    }
     #gpa-table {
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
@@ -586,5 +618,10 @@ th, td {
         }
     #subjectsTableCGPA h3{
         font-size: 1rem;
+    }
+
+    .popup{
+        width:90%;
+        height: auto;
     }
 }

@@ -2,26 +2,32 @@
 :root {
     --white: #fff;
     --black: #000;
+
     --background: #fcfcfc;
-    --surface1: #ffffff;
-    --surface2: #ffffff;
+    --surface1: #F8F9FA;
+    --surface2: #FFFFFF;
     --primary: #00b0ff;
+
     --onBackground: #333;
     --onSurface: #5F6368;
     --onPrimary: #202124;
-    --hover: #f0f0f0;
+
+    --outline: #d5d7d5;
 }
 
 /* ========= DARK THEME ============ */
 [data-theme="dark"] {
     --white: #fff;
     --black: #000;
-    --background: #121212;
-    --surface1: #2E2E2E;
-    --surface2: #333333;
+
+    --background: #131314;
+    --surface1: #1e1f20;
+    --surface2: #1F1F1F;
     --primary: #00b0ff;
+
     --onBackground: #fff;
     --onSurface: #9AA0A6;
     --onPrimary: #E8EAED;
-    --hover: #0f0f0f;
+
+    --outline: #353737
 }

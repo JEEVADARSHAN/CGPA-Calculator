@@ -77,6 +77,7 @@
     </script>
 
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -91,17 +92,12 @@
 
         <div class="sideBar">
 
-            <div id="menu" class="sideBarItem" style="position: absolute; top: 0.5rem; pointer-events: none;">
-                <i class='bx bx-menu'></i>
-                <span class="sideBarText animate" data-animation="showText" style="font-size: 0.8rem;"><b>Menu</b></span>
-            </div>
-            <hr />
             <div class="sideBarItem" onclick="UI('GPA')">
                 <i id="i-1" class='bx bx-calculator'></i>
                 <span class="sideBarText animate" data-animation="slideRight">GPA Calculator</span>
             </div>
             <div class="sideBarItem" onclick="UI('CGPA')">
-                <i id="i-2" class='bx bx-calculator'></i> <!-- Fixed 'onclick' here -->
+                <i id="i-2" class='bx bx-bar-chart-alt-2'></i>
                 <span class="sideBarText animate" data-animation="slideRight">CGPA Calculator</span>
             </div>
             <div class="sideBarItem" onclick="UI('Target')">
@@ -109,78 +105,77 @@
                 <span class="sideBarText animate" data-animation="slideRight">Target GPA</span>
             </div>
 
+            <div class="overlay-min"></div>
         </div>
-        <div class="overlay"></div>
 
     </header>
 
     <!-- Content -->
     <main>
 
-        <!-- Policy and Terms-->
+        <!-- Policy and Terms -->
         <input type="checkbox" id="privacy-checkbox" class="privacy-checkbox">
         <div class="privacy-popup">
             <div class="popup-content rndBox">
-                <div style=" display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                <div style="overflow: auto; pointer-events: all;">
                     <h2>Privacy Policy</h2>
                     <label for="privacy-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
+                    <br />
+                    <p>
+                        We respect your privacy. This website is designed to operate with minimal data collection.
+                        <br /><br />
+
+                        <b>What We Do</b><br /><br />
+                        1. We provide a CGPA calculator based on publicly available syllabus and grading criteria of Chennai Institute of Technology.<br /><br />
+                        2. All CGPA calculations are performed locally in your browser — no personal data is transmitted to our servers.<br /><br />
+                        3. We use <b>Google Analytics</b> to understand how users interact with our site. This helps us improve the user experience and website performance.<br /><br />
+
+                        <b>About Google Analytics</b><br /><br />
+                        1. Google Analytics collects anonymous usage information such as page views, time on site, and general device/browser data.<br /><br />
+                        2. No personally identifiable information (such as name, student ID, marks, or IP address) is collected or stored by us.<br /><br />
+                        3. You can learn more about how Google Analytics handles data here:
+                        <a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google Privacy & Terms</a>.<br /><br /><br />
+
+                        <b>What We Don’t Do</b><br /><br />
+                        1. We don’t ask for or store names, student IDs, marks, or any academic records.<br /><br />
+                        2. We don’t sell, share, or trade any user data.<br /><br />
+                        3. We don’t use cookies beyond what is required by Google Analytics.<br /><br />
+                    </p>
                 </div>
-                <p>
-                    We respect your privacy. This website does not collect, store, or share any personal information.
-                    <br />
-                    <br />
-                    <b>What We Do</b>
-                    <br /><br />
-                    1. We provide a CGPA calculator based on publicly available syllabus and grading criteria of Chennai Institute of Technology.
-                    <br /><br />
-                    2. All calculations are performed locally in your browser.
-                    <br /><br />
-                    3. We do not use cookies or track your activity.
-                    <br /><br /><br />
-                    <b>What We Don't Do</b>
-                    <br /><br />
-                    1. We don't ask for or store names, student IDs, or any academic records.
-                    <br /><br />
-                    2. We don’t use third-party analytics or tracking tools.<br /><br />
-                </p>
             </div>
         </div>
+
         <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
         <div class="terms-popup">
             <div class="popup-content rndBox">
-                <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; ">
-                    <h2>Disclaimer</h2><br />
+                <div style="overflow-y: auto; pointer-events: all;">
+                    <h2>Disclaimer</h2>
                     <label for="terms-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
+                    <br />
+                    <p>
+                        1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br /><br />
+                        2. It is provided for informational and educational purposes only.<br /><br />
+                        3. CGPA results are approximate and based on publicly available grading criteria. For official CGPA information, please consult your academic department or examination office.<br /><br />
+                        4. The developer is not responsible for any decisions made based on the results from this tool.<br /><br />
+                    </p>
+
+                    <h2>Terms of Use</h2>
+                    <br />
+                    <p>
+                        By using this website, you agree to the following:<br /><br />
+                        1. You will use this tool only for personal, non-commercial academic assistance.<br /><br />
+                        2. You understand that this tool is unofficial and meant as a guide, not an authority.<br /><br />
+                        3. You agree to the use of Google Analytics for anonymous usage tracking as described in the Privacy Policy.<br /><br />
+                        4. You will not copy, redistribute, or attempt to misuse the calculator or its logic for misleading purposes.<br /><br />
+                    </p>
                 </div>
-                <p>
-                    1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br />
-                    <br /><br />
-                    2. It is provided for informational and educational purposes only.<br />
-                    <br /><br />
-                    3. CGPA results are approximations based on the syllabus and grading patterns. For official CGPA, please consult your academic department or examination office.<br />
-                    <br /><br />
-                    4. The developer is not responsible for any decisions made based on the results from this tool.<br />
-                    <br /><br />
-                </p>
-
-
-                <h2>Terms of Use</h2>
-                <br />
-                <p>
-                    By using this website, you agree to the following:<br /><br />
-                    1. You will use this tool only for personal, non-commercial academic assistance.<br />
-                    <br /><br />
-                    2. You understand that this tool is unofficial and meant as a guide, not an authority.<br />
-                    <br /><br />
-                    3. You will not copy, redistribute, or attempt to misuse the calculator or its logic for misleading purposes.<br />
-                    <br /><br />
-                </p>
             </div>
         </div>
 
+
         <!-- Intro -->
         <section id="Intro">
-            <img src="Assets/01.webp" alt="Chennai Institute of Technology" />
+            <img src="Assets/01.webp" fetchpriority="high" alt="Chennai Institute of Technology" />
             <div class="text-overlay">
                 <br />
                 <h2>CIT CGPA & GPA Calculator</h2>
@@ -217,7 +212,7 @@
         <!-- GPA -->
 
         <section id="GPA" class="animate" data-animation="slideRight">
-            <div class="txtBox">
+            <div class="rndBox">
                 <h3>
                     Understanding Your GPA Result
                 </h3>
@@ -267,7 +262,7 @@
                 <button class="btn" onclick="calculate('gpa')">Calculate</button>
                 <h3 id="final-gpa" style="visibility: hidden;">Your GPA: <span style="font-size: 1.3rem;"></span></h3>
             </div>
-            <div class="txtBox">
+            <div class="rndBox">
                 <h3>
                     How is Your GPA Calculated?
                 </h3>
@@ -290,7 +285,7 @@
         <!-- CGPA -->
 
         <section id="CGPA" class="animate" data-animation="showText">
-            <div class="txtBox">
+            <div class="rndBox">
                 <h3>
                     Understanding Your CGPA:
                 </h3>
@@ -301,7 +296,7 @@
                     <br />This cumulative score gives you a complete picture of your academic performance.
                 </p>
             </div>
-            <div class="rndBox container">
+            <div class="container rndBox">
                 <!-- Regulation Dropdown -->
                 <label for="cgpa-reg">Select Regulation:</label>
                 <select id="cgpa-reg" onchange="depDropdown('cgpa')">
@@ -346,7 +341,7 @@
         <!-- Target -->
 
         <section id="Target" class="animate" data-animation="slideLeft">
-            <div class="txtBox">
+            <div class="rndBox">
                 <h3>
                     Setting a Target GPA for Success:
                 </h3>
