@@ -93,7 +93,6 @@ button {
     transition: transform 0.4s, background 0.8s ease;
     background-position: center;
 }
-
     button:hover {
         transform: translateY(-1px);
         background: #2196f3 radial-gradient(circle, transparent 1%, #00b0ff 1%) center/15000%;
@@ -103,6 +102,25 @@ button {
         background-color: #2196f3;
         background-size: 100%;
         transition: background 0s;
+    }
+
+.floatBtn {
+    position: fixed;
+    display: flex;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 20px;
+    z-index: 8;
+}
+
+    .floatBtn button {
+        height: 35px;
+        width: 35px;
+        margin: 0;
+        padding: 0.5rem;
+        border-radius: 50%;
+        outline: 1px solid var(--outline);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
     }
 
 
@@ -169,10 +187,22 @@ main {
     overflow: auto;
     pointer-events: none;
 }
+
 .popup-content {
     margin: 1rem;
     position: relative;
 }
+
+    .popup-content .box {
+        overflow: auto;
+        pointer-events: all;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .popup-content .box ::-webkit-scrollbar-button {
+        display: none;
+    }
 
     .privacy-popup div::-webkit-scrollbar, .terms-popup::-webkit-scrollbar {
         display: none;
@@ -362,6 +392,45 @@ main {
         align-items: center;
     }
 
+
+/* ========= TOAST ===========*/
+.toast {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 15px;
+    right: 15px;
+    background: var(--surface2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    transition: all 1s;
+    outline: 1px solid var(--outline);
+    z-index: 10;
+}
+.toast button{
+    margin: 0.5rem;
+}
+.onError {
+    background-color: var(--onError);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .onError:hover {
+        background: #D40000 radial-gradient(circle, transparent 1%, #F21E1E 1%) center/15000%;
+    }
+
+.toast .links{
+    text-decoration: underline;
+}
+    .toast .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
 /*========== INTRO ==========*/
 
 #Intro{
@@ -542,6 +611,7 @@ th, td {
         .sideBarItem:hover {
             background-color: transparent;
         }
+
     .sideBarText{
         margin: 0;
         opacity:1;
@@ -623,5 +693,13 @@ th, td {
     .popup{
         width:90%;
         height: auto;
+    }
+
+    .floatBtn{
+        bottom: 4.3rem;
+    }
+    .toast{
+        bottom: 4.2rem;
+        right:auto;
     }
 }

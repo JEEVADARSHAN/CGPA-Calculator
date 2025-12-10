@@ -12,6 +12,8 @@
     --onSurface: #5F6368;
     --onPrimary: #202124;
 
+    --onError: #F21E1E;
+    
     --outline: #d5d7d5;
 }
 
@@ -28,6 +30,8 @@
     --onBackground: #fff;
     --onSurface: #9AA0A6;
     --onPrimary: #E8EAED;
+
+    --onError: #F21E1E;
 
     --outline: #353737
 }

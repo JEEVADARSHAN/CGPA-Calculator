@@ -1,4 +1,7 @@
 function createPopup(content, status = "warning") {
+    const existing = document.querySelector(".overlay");
+    if (existing) existing.remove();
+
     const overlay = document.createElement("div");
     overlay.classList.add("overlay");
 

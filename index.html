@@ -117,7 +117,7 @@
         <input type="checkbox" id="privacy-checkbox" class="privacy-checkbox">
         <div class="privacy-popup">
             <div class="popup-content rndBox">
-                <div style="overflow: auto; pointer-events: all;">
+                <div class="box">
                     <h2>Privacy Policy</h2>
                     <label for="privacy-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
                     <br />
@@ -148,15 +148,18 @@
         <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
         <div class="terms-popup">
             <div class="popup-content rndBox">
-                <div style="overflow-y: auto; pointer-events: all;">
+                <div class="box">
                     <h2>Disclaimer</h2>
                     <label for="terms-checkbox" class="close-btn"><i class='bx bx-x'></i></label>
                     <br />
                     <p>
-                        1. This tool is not affiliated with or officially endorsed by Chennai Institute of Technology.<br /><br />
-                        2. It is provided for informational and educational purposes only.<br /><br />
-                        3. CGPA results are approximate and based on publicly available grading criteria. For official CGPA information, please consult your academic department or examination office.<br /><br />
-                        4. The developer is not responsible for any decisions made based on the results from this tool.<br /><br />
+                        1. This tool is not affiliated with, endorsed by, or connected to Chennai Institute of Technology (CIT) in any way.<br /><br />
+                        2. The information provided here is for general informational and educational purposes only.<br /><br />
+                        3. CGPA/GPA calculations shown on this site are only estimates. They are generated based on grading criteria publicly available on CIT’s official website at the time of development.<br /><br />
+                        4. If CIT updates, modifies, or removes information from their official site, the calculation results on this tool may become outdated or inaccurate.<br /><br />
+                        5. For official and accurate CGPA, grade, or academic information, students must refer directly to their department, examination office, or CIT’s official website.<br /><br />
+                        6. The developer is not responsible for incorrect interpretations, outdated data, or decisions made based on the results displayed by this tool.
+                        This tool does not influence, modify, or affect any student’s official marks or academic records.<br /><br />
                     </p>
 
                     <h2>Terms of Use</h2>
@@ -382,6 +385,32 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Toast -->
+        <div id="toast" class="toast">
+            <h4>Notice</h4>
+            <br />
+            <p>
+                This CGPA calculator uses syllabus and grading info from
+                <a class="links" href="https://www.citchennai.edu.in/academics/curriculum-syllabus/" target="_blank">CIT Official Syllabus ↗</a>.<br>
+                Results are <b>estimates only</b>. For official info, consult your department.<br>
+
+            </p>
+            <div class="row">
+                <button class="onError" onclick="window.open('https://forms.gle/VyUahxUm4M61dtLL6', '_blank')">
+                    Report now
+                </button>
+                <button onclick="document.getElementById('toast').remove()">Ok</button>
+            </div>
+
+        </div>
+
+
+        <!-- Report -->
+        <div class="floatBtn">
+            <button class="onError"><i class='bx bxs-message-error'></i></button>
+        </div>
 
     </main>
 

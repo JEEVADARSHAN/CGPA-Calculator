@@ -416,4 +416,4 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/JS/service-worker.js")
         .then(() => console.log("Service Worker registered"))
         .catch((err) => console.error("Service Worker failed:", err));
-}
+}z
